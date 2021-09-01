@@ -1,6 +1,1 @@
-pipeline{
-   node any
-  stages {
-     .....
-  }
-}
+
