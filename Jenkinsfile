@@ -6,20 +6,6 @@ pipeline {
             steps {
 		  git "https://github.com/m1m2m3/DevOps-Batch.git"
 	          }
-            }
-        
-           stage('build && SonarQube analysis') 
-	    {
-            steps {
-                withSonarQubeEnv(credentialsId: 'sonar', installationName: 'Sonar') 
-		    {
-                    // Optionally use a Maven environment you've configured already
-                 withMaven(jdk: 'myjdk', maven: 'mymaven') 
-			    {
-                        sh 'mvn clean package sonar:sonar'
-                            }
-                   }
-                }
-           } 	    	 
+            }                  	    	 
  }
 }
