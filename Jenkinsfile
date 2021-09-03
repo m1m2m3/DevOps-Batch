@@ -6,7 +6,7 @@ pipeline {
             steps {
 		  git "https://github.com/m1m2m3/DevOps-Batch.git"
 	          }
-		  #adding
+		 
             }                  	    	 
  }
 }
