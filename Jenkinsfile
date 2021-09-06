@@ -7,6 +7,15 @@ pipeline {
 		  git "https://github.com/m1m2m3/DevOps-Batch.git"
 	          }
             }
+	    stage('build package') 
+	    {
+            steps {
+		     withMaven(jdk: 'myjdk', maven: 'mymaven') 
+			    {
+                        sh 'mvn clean package'
+                            }
+                   }
+                }
         
                 }
            }
