@@ -1,22 +1,22 @@
 pipeline {
     agent any
     stages {
+      stage('Build Stages') {
+        agent none
+        steps {
+        script {
         stage('SCM Checkout') 
-	    {
-            steps {
-		  git "https://github.com/m1m2m3/DevOps-Batch.git"
-	          }
+	        {
+               deleteDir()
+               checkout scm 
+          }
+        stage('Maven Build'){
+            withMaven(maven: 'Maven-3.6.0'){
+            sh 'mvn install -Dmaven.test.skip=true'
             }
-	    stage('build package') 
-	    {
-            steps {
-		     withMaven(jdk: 'myjdk', maven: 'mymaven') 
-			    {
-                        sh 'mvn clean package'
-                            }
-                   }
-                }
-        
-                }
-           }
-	   
+        }
+}
+}
+        }
+    }
+}
