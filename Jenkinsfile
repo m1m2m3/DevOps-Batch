@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
         stage('SCM Checkout') 
 	    {
@@ -9,19 +8,6 @@ pipeline {
 	          }
             }
         
-           stage('build && SonarQube analysis') 
-	    {
-            steps {
-                withSonarQubeEnv(credentialsId: 'sonar', installationName: 'Sonar') 
-		    {
-                    // Optionally use a Maven environment you've configured already
-                 withMaven(jdk: 'myjdk', maven: 'mymaven') 
-			    {
-                        sh 'mvn clean package sonar:sonar'
-                            }
-                   }
                 }
            }
-	    
-	   }
-}
+	   
