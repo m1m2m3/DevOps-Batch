@@ -1,4 +1,6 @@
-# DevOps-Batch
+# maven-project
+Source code for James Lee's Jenkins course.
 
--this is java based application , we are just started 
-we are trying to enable Poll SCM
+Check out our Latest DevOps PDF book.
+
+https://www.level-up.one/devops-pdf-book
