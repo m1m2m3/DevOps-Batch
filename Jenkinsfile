@@ -1,22 +1,35 @@
 pipeline {
+
     agent any
+    tools {
+        maven 'Maven_3.5.2' 
+    }
+	stages {
+		stage('SCM checkout') {
+			steps { 
+			git "https://github.com/m1m2m3/DevOps-Batch.git"
+			} 
+		}
+	}
     stages {
-      stage('Build Stages') {
-        agent none
-        steps {
-        script {
-        stage('SCM Checkout') 
-	        {
-               deleteDir()
-               checkout scm 
-          }
-        stage('Maven Build'){
-            withMaven(maven: 'mymaven'){
-            sh 'mvn install -Dmaven.test.skip=true'
-            }
-        }
-}
-}
+        stage('Compile stage') {
+            steps {
+                bat "mvn clean compile" 
         }
     }
+
+         stage('testing stage') {
+             steps {
+                bat "mvn test"
+        }
+    }
+
+          stage('deployment stage') {
+              steps {
+                bat "mvn deploy"
+        }
+    }
+
+  }
+
 }
