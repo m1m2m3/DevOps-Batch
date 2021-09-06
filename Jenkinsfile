@@ -8,7 +8,7 @@ pipeline
 
     stage('build the code')
     { steps { withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME') 
-      { sh 'mvn package' }  
+      { bat 'mvn package' }  
     
     }}
 
