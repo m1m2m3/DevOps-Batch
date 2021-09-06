@@ -11,7 +11,7 @@ pipeline {
                checkout scm 
           }
         stage('Maven Build'){
-            withMaven(maven: 'Maven-3.6.0'){
+            withMaven(maven: 'mymaven'){
             sh 'mvn install -Dmaven.test.skip=true'
             }
         }
