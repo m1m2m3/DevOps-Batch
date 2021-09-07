@@ -12,7 +12,7 @@ pipeline
     }}
     stage ('deploy to dev') {
              steps {
-                  sshagent(['ec2-user']) {
+                  sshagent(['akshay-root-tomcat']) {
                   sh 'scp -o StrictHostKeyChecking=no */target/*.war root@172.31.33.14:/root/tomcat/webapps'
 } } }
 
