@@ -10,11 +10,6 @@ pipeline
     { steps { withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME') 
       { sh 'mvn clean package' }  
     }}
-    stage ('deploy to dev') {
-             steps {
-                  sshagent(['deploy-user']) {
-                  sh "scp -o StrictHostKeyChecking=no */target/*.war ec2-user@15.206.166.243:/opt/tomcat/webapps"
-} } }
 
   }
 }
